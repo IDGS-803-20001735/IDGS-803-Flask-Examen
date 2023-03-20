@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block content %}
+<h1 class="info__title">!Bienvenido <b style="color: #58D68D;"> {{ name }}</b>!</h1>
+<div class="container_mangas"
+  style="display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; width: 100vw; justify-content: center;">
+  {% for manga in mangas %}
+  <div class="card"
+    style="width: 18rem; height: auto; margin: 0.5rem; background-color: #EAF2F8; border: solid thick #D4E6F1;">
+    <img src="../static/img/journal.svg" class="card-img-top" alt="{{ manga.name }}"
+      style="width: 5rem; margin-left: auto; margin-right: auto; margin-top: 1rem;">
+    <div class="card-body">
+      <li style="list-style: none;">
+        <ul><b>NOMBRE:</b><b style="color: #58D68D;"> {{ manga.name }}</b></ul>
+        <ul><b>AUTOR:</b><b style="color: #58D68D;"> {{ manga.author }}</b></ul>
+        <ul><b>NO.TOMO:</b><b style="color: #58D68D;"> {{ manga.tomo }}</b></ul>
+        <ul><b>PRECIO:</b><b style="color: #58D68D;"> ${{ manga.price }}</b></ul>
+        <ul><b>ESTATUS:</b>{% if manga.exist == 'AGOTADO' %}<b style="color: red;"> {{ manga.exist }}</b>{% else %}<b
+            style="color: blue;"> {{ manga.exist }}</b>{% endif %}
+        </ul>
+      </li>
+    </div>
+  </div>
+  {% endfor %}
+</div>
+{% endblock %}

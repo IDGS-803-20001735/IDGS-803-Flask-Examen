@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container">
+  <button class="btn btn-success" type="button" style="margin: 1rem;"><a href="{{ url_for('main.insert_manga') }}"
+      style="text-decoration: none; color:white;">NUEVO</a></button>
+  <div class="row">
+    <table class="table table-light" style="text-align: center;">
+      <thead style="text-transform: uppercase;">
+        <tr class="tr_head">
+          <th>#</th>
+          <th>Nombre</th>
+          <th>Autor</th>
+          <th>No.Tomo</th>
+          <th>Precio</th>
+          <th>Estatus</th>
+          <th>Eliminar</th>
+          <th>Modificar</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for manga in mangas %}
+        <tr>
+          <td>{{ manga.id }}</td>
+          <td>{{ manga.name }}</td>
+          <td>{{ manga.author }}</td>
+          <td>{{ manga.tomo }}</td>
+          <td>{{ manga.price }}</td>
+          <td>{{ manga.exist }}</td>
+          <td><a href="deleteManga?id={{ manga.id }}" class="btn btn-danger">
+              <i class="icon-remove icon-white"></i>ELIMINAR
+            </a></td>
+          <td><a href="updateManga?id={{ manga.id }}" class="btn btn-warning">
+              <i class="icon-edit icon-white"></i>MODIFICAR
+            </a></td>
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

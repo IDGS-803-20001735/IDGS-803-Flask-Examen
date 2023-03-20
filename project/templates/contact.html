@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container_information">
+  <div class="container__contact">
+    <p class="info__content">
+      <b>Nombre de la empresa:</b><br>
+      Manga Store
+      <br>
+      <b>Dirección:</b><br>
+      Calle Shibuya 105, Ciudad Otaku, Código Postal 12345, País del Manga
+      <br>
+      <b>Correo electrónico:</b><br>
+      info@mangastore.com
+      <br>
+      <b>Teléfono:</b><br>
+      +52 800-555-1234
+      <br>
+      <b>Horario de atención al cliente:</b><br>
+      Lunes a viernes: 9:00 a.m. - 6:00 p.m. <br>
+      Sábados: 10:00 a.m. - 2:00 p.m. <br>
+      Domingos: cerrado <br>
+      <b>Redes sociales:</b>
+      Facebook: @MangaStoreOficial <br>
+      Instagram: @MangaStoreOficial <br>
+      Twitter: @MangaStoreOfcl <br>
+      <b>Esperamos tener noticias tuyas pronto. ¡Gracias por elegir Manga Store!</b>
+    </p>
+  </div>
+  <div class="container__form">
+    <form action="">
+      <h1 class="info__title">¡Te estamos esperando!</h1>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Correo electronico</label>
+        <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+      </div>
+      <div class="mb-3">
+        <label for="exampleFormControlTextarea1" class="form-label">Cuentanos algo</label>
+        <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+      </div>
+      <div class="container_btn">
+        <button class="btn btn-success">ENVIAR</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}

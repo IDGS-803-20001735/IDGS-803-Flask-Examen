@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container_login">
+  <form class="form_container" method="POST" action="/security/login">
+    <h1 class="info__title">Login Manga Store</h1>
+    <div class="container_img">
+      <img class="img" src="../../static/img/person-circle.svg" alt="">
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Correo electronico</label>
+      <input type="email" class="form-control" id="exampleFormControlInput1" name="email" placeholder="Correo">
+    </div>
+    <div class="mb-3">
+      <label for="exampleFormControlInput1" class="form-label">Contraseña</label>
+      <input type="password" class="form-control" id="exampleFormControlInput1" name="password"
+        placeholder="Contraseña">
+    </div>
+    <div class="mb-3">
+      <label class="checkbox">
+        <input type="checkbox">
+        Recuerdame
+      </label>
+    </div>
+    <div class="container_btn">
+      <button class="btn btn-primary">Iniciar Sesión</button>
+    </div>
+  </form>
+</div>
+{% endblock %}
