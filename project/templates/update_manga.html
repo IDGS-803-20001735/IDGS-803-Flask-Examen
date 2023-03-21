@@ -1,37 +1,30 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container-form" style="width: 75%; margin-left: auto; margin-right: auto; margin-top: 3.5rem;">
+<div class="container-form" style="width: 75%; margin-left: auto; margin-right: auto; margin-top: 3rem;">
   <form name="sent" id="form1" method="POST" style="width: 50%;">
-    <h2 class="title-form" style="text-align: center; font-weight: bold; ">MODIFICACIÓN DE MANGA</h2>
-    <div class="row control-group">
-      <div class="form-group col-xs-12 float-label-form-group controls">
-        <input type="text" class="form-control-plaintext" id="id" name="id" value="{{ id }}">
-      </div>
+    <h1 class="info__title">Modificación de Manga</h1>
+    <div class="mb-3">
+      <input class="form-control" type="text" name="id" placeholder="ID DE LA OBRA" autofocus="" value="{{ id }}">
     </div>
-    <div class="row control-group">
-      <div class="form-group col-xs-12 float-label-form-group controls">
-        <input type="text" class="form-control-plaintext" id="nombre" name="nombre" value="{{ nombre }}">
-      </div>
+    <div class="mb-3">
+      <input class="form-control" type="text" name="nombre" placeholder="TITULO DE LA OBRA" autofocus=""
+        value="{{ nombre }}">
     </div>
-    <div class="row control-group">
-      <div class="form-group col-xs-12 float-label-form-group controls">
-        <input type="text" class="form-control-plaintext" id="autor" name="autor" value="{{ autor }}">
-      </div>
+    <div class="mb-3">
+      <input class="form-control" type="text" name="autor" placeholder="AUTOR DE LA OBRA" autofocus=""
+        value="{{ autor }}">
     </div>
-    <div class="row control-group">
-      <div class="form-group col-xs-12 float-label-form-group controls">
-        <input type="number" class="form-control-plaintext" id="tomo" name="tomo" value="{{ tomo }}">
-      </div>
+    <div class="mb-3">
+      <input class="form-control" type="number" name="tomo" placeholder="NÚMERO DE VOLUMEN DE LA OBRA" autofocus=""
+        value="{{ tomo }}">
     </div>
-    <div class="row control-group">
-      <div class="form-group col-xs-12 float-label-form-group controls">
-        <input type="number" class="form-control-plaintext" id="precio" name="precio" value="{{ precio }}">
-      </div>
+    <div class="mb-3">
+      <input class="form-control" type="number" name="precio" placeholder="COSTO DE LA OBRA" autofocus=""
+        value="{{ precio }}">
     </div>
-    <div class="row control-group">
-      <div class="form-group col-xs-12 float-label-form-group controls">
-        <input type="text" class="form-control-plaintext" id="estatus" name="estatus" value="{{ estatus }}">
-      </div>
+    <div class="mb-3">
+      <input class="form-control" type="text" name="estatus" placeholder="ESTATUS DE LA OBRA" autofocus=""
+        value="{{ estatus }}">
     </div>
     <div style="display: flex; flex-direction: row; justify-content: space-evenly; align-items: center;">
       <input type="submit" id="reg-alum" name="registra" value="MODIFICAR" class="btn btn-primary" />
@@ -40,4 +33,5 @@
   </form>
 </div>
 </div>
+
 {% endblock %}
