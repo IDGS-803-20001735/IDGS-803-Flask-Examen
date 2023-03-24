@@ -1,30 +1,45 @@
 {% extends "base.html" %}
 {% block content %}
-<h1 class="info__title">!Bienvenido <b style="color: #58D68D;"> {{ name }}</b>!</h1>
+<h1 class="info__title" id="HOME">!Bienvenido <b style="color: #58D68D;"> {{ name }}</b>!</h1>
+<div style="margin-left: auto; margin-right: auto; width: 50vw;">
+  <form action="/selectManga" method="POST">
+    <div class="input-group mb-3">
+      <input class="form-control" type="text" name="nombre" placeholder="TITULO DE LA OBRA" autofocus="">
+      <button class="btn btn-primary" type="submit" id="button-addon2">FILTRAR</button>
+    </div>
+  </form>
+</div>
+
 <div class="container_mangas"
   style="display: flex; flex-direction: row; flex-wrap: wrap; align-items: center; width: 100vw; justify-content: center;">
   {% for manga in mangas %}
   <div class="card md-1 text-white bg-dark"
-    style="max-width: 540px; width: 10rem; margin: 0.5rem;flex-wrap: wrap; align-items: center; width: 100vw; justify-content: center;">
+    style="max-width: 400px; margin: 0.5rem; flex-wrap: wrap; align-items: center; width: 100vw; justify-content: center;">
     <div class="row g-0">
-      <div class="col-md-4">
-        <img src="../static/img/{{ manga.name }}_{{ manga.tomo }}.png" class="img-fluid rounded-start"
-          alt="{{ manga.name }}">
+
+      <div class="col-md-4" style="display:flex; justify-content:center; align-items:center;">
+        <img src="../static/img/{{ manga.image }}" class="img-fluid rounded-start" alt="{{ manga.name }}"
+          style="height: 100%; width: auto;">
       </div>
+
       <div class="col-md-8">
         <div class="card-body">
-          <li style="list-style: none; align-items: center; margin-top: 1.5rem; justify-content: center;">
+          <li
+            style="list-style: none; align-items: center; margin-top: 1.5rem; justify-content: center; font-size: .9rem;">
             <ul><b>NOMBRE:</b><b style="color: #58D68D;"> {{ manga.name }}</b></ul>
             <ul><b>AUTOR:</b><b style="color: #58D68D;"> {{ manga.author }}</b></ul>
             <ul><b>NO.TOMO:</b><b style="color: #58D68D;"> {{ manga.tomo }}</b></ul>
             <ul><b>PRECIO:</b><b style="color: #58D68D;"> ${{ manga.price }}</b></ul>
-            <ul><b>ESTATUS:</b>{% if manga.exist == 'AGOTADO' %}<b style="color: red;"> {{ manga.exist }}</b>{% else
-              %}<b style="color: blue;"> {{ manga.exist }}</b>{% endif %}
+            <ul><b>ESTATUS:</b>{% if manga.exist == 'AGOTADO' %}<b style="color: red;"> {{ manga.exist }}</b>{% else%}<b
+                style="color: blue;"> {{ manga.exist }}</b>{% endif %}
             </ul>
         </div>
       </div>
     </div>
   </div>
+
   {% endfor %}
 </div>
+<h3 style="text-transform: uppercase; font-weight: bold; text-align: center;"><a href="#HOME"
+    style="text-decoration: none; color: tomato;">REGRESAR AL PRINCIPIO</a></h3>
 {% endblock %}

@@ -23,7 +23,9 @@
         <div class="navbar-nav ms-auto">
           {% if current_user.is_authenticated %}
           <a href="{{ url_for('main.profile') }}" class="nav-item nav-link">Sección de Usuario</a>
+          {% if current_user.has_role('admin') %}
           <a href="{{ url_for('main.admin') }}" class="nav-item nav-link">Gestión de Mangas</a>
+          {% endif %}
           <a href="{{ url_for('main.contact') }}" class="nav-item nav-link">Contacto</a>
           <a href="{{ url_for('auth.logout') }}" class="nav-item nav-link">Cerrar Sesión</a>
           {% else %}
@@ -34,17 +36,23 @@
       </div>
     </div>
   </nav>
-  <div class="container_alerts">
+
+  <div class="container_alerts" style="font-weight: bold; text-align: center;">
     {% with messages = get_flashed_messages() %}
     {% if messages %}
     {% for message in messages %}
-    <div class="alert alert-warning">
-      {{ message }}
-    </div>
+    {% if 'error' in message %}
+    <div class="alert alert-danger">{{ message }}</div>
+    {% elif 'warning' in message %}
+    <div class="alert alert-warning">{{ message }}</div>
+    {% else %}
+    <div class="alert alert-info">{{ message }}</div>
+    {% endif %}
     {% endfor %}
     {% endif %}
     {% endwith %}
   </div>
+
   {% block content %}
 
   {% endblock %}

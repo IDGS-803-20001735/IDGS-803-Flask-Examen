@@ -32,3 +32,4 @@ class Manga(db.Model):
     tomo = db.Column(db.Integer, nullable = False)
     price = db.Column(db.Float, nullable = False)
     exist = db.Column(db.String(50), nullable = False)
+    image = db.Column(db.String(50), nullable = False)

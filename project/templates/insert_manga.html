@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container-form" style="width: 75%; margin-left: auto; margin-right: auto; margin-top: 5rem;">
+<div class="container-form" style="width: 75%; margin-left: auto; margin-right: auto; margin-top: 3rem;">
   <form name="sent" action="/insertManga" id="form1" method="POST" style="width: 50%;">
     <h1 class="info__title">Registro de Manga</h1>
     <div class="mb-3">
@@ -16,7 +16,13 @@
       <input class="form-control" type="number" name="precio" placeholder="COSTO DE LA OBRA" autofocus="">
     </div>
     <div class="mb-3">
-      <input class="form-control" type="text" name="estatus" placeholder="ESTATUS DE LA OBRA" autofocus="">
+      <select class="form-select" id="exampleSelect1" name="estatus">
+        <option>EXISTENCIA</option>
+        <option>AGOTADO</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <input class="form-control" type="file" id="formFile" name="cover">
     </div>
     <div style="display: flex; flex-direction: row; justify-content: space-evenly; align-items: center;">
       <input type="submit" id="reg-alum" name="registra" value="REGISTRAR" class="btn btn-primary" />

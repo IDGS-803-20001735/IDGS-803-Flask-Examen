@@ -2,6 +2,8 @@ import os
 from flask import Flask
 from flask_security import Security, SQLAlchemyUserDatastore
 from flask_sqlalchemy import SQLAlchemy
+import logging
+import datetime
 
 db = SQLAlchemy()
 from .models import User, Role
@@ -28,5 +30,10 @@ def create_app():
 
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
+
+    fecha_actual = datetime.datetime.now()
+
+    logging.basicConfig(filename = 'app.log', level = logging.DEBUG)
+    logging.debug('ARRANQUE DE APLICACION, EL DIA: %s', fecha_actual)
 
     return app

@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 {% block content %}
-<div class="container-form" style="width: 75%; margin-left: auto; margin-right: auto; margin-top: 3rem;">
+<div class="container-form" style="width: 75%; margin-left: auto; margin-right: auto; margin-top: 1.5rem;">
   <form name="sent" id="form1" method="POST" style="width: 50%;">
     <h1 class="info__title">Modificación de Manga</h1>
     <div class="mb-3">
@@ -23,8 +23,13 @@
         value="{{ precio }}">
     </div>
     <div class="mb-3">
-      <input class="form-control" type="text" name="estatus" placeholder="ESTATUS DE LA OBRA" autofocus=""
-        value="{{ estatus }}">
+      <select class="form-select" id="exampleSelect1" name="estatus">
+        <option value="EXISTENCIA" {% if estatus=="EXISTENCIA" %}selected{% endif %}>EXISTENCIA</option>
+        <option value="AGOTADO" {% if estatus=="AGOTADO" %}selected{% endif %}>AGOTADO</option>
+      </select>
+    </div>
+    <div class="mb-3">
+      <input class="form-control" type="txt" name="cover" placeholder="COVER DE LA OBRA" value="{{ imagen }}">
     </div>
     <div style="display: flex; flex-direction: row; justify-content: space-evenly; align-items: center;">
       <input type="submit" id="reg-alum" name="registra" value="MODIFICAR" class="btn btn-primary" />
